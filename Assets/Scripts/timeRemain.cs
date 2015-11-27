@@ -13,22 +13,25 @@ public class timeRemain : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Countdown();
+		Invoke("Countdown", 2);
 		time = words.GetComponent<Text>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		time.text = " " + timeRemaining;
-		if(BlameCounter.blameTime == 0){
-			timeRemaining = 60;
-		}
-		if(BlameCounter.blameTime <= -60){
-			timeRemaining = 0;
-		}
-		if(BlameCounter.blameTime == -70){
+//		if(BlameCounter.blameTime == 0){
+//			timeRemaining = 60;
+//		}
+
+		if(timeRemaining == 0){
 			timeRemaining = 30;
+			Application.LoadLevel("Vote");
 		}
+//
+//		if(BlameCounter.blameTime == -70){
+//			timeRemaining = 30;
+//		}
 	}
 
 	void Minus (){

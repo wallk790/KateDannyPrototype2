@@ -4,9 +4,9 @@ using UnityEngine.UI;
 
 public class KeepScore : MonoBehaviour {
 
-	public static string[] phase1 = {"a","b","d","c"};
-	public static string[] phase2 = {"b","c","c","d"};
-	public static string truth;
+	public static string[] phase1 = {"b","a","d","c"};
+	public static string[] phase2 = {"b","b","c","d"};
+	public static string truth = "b";
 
 	int playerAscore = 0;
 	int playerBscore = 0;
@@ -23,15 +23,31 @@ public class KeepScore : MonoBehaviour {
 	public GameObject C;
 	public GameObject D;
 
-	bool truthed;
-	bool voted;
-	bool blamed;
+	public GameObject blameSticker;
+	public GameObject voteSticker;
+	public GameObject truthSticker;
+
+	
+	public Vector3[] PositionsA;
+	public Vector3[] PositionsB;
+	public Vector3[] PositionsC;
+	public Vector3[] PositionsD;
+		
+	int storageSpotA = 0;
+	int storageSpotB = 0;
+	int storageSpotC = 0;
+	int storageSpotD = 0;
 	
 	void Start (){
-		playerA = A.GetComponent<Text>();
-		playerB = B.GetComponent<Text>();
-		playerC = C.GetComponent<Text>();
-		playerD = D.GetComponent<Text>();
+		Invoke ("BlameStickers", 1f);
+		Invoke ("VoteStickers", 3f);
+		Invoke ("TruthStickers", 5f);
+
+
+//		playerA = A.GetComponent<Text>();
+//		playerB = B.GetComponent<Text>();
+//		playerC = C.GetComponent<Text>();
+//		playerD = D.GetComponent<Text>();
 	}
 
 	void Update(){
@@ -61,10 +77,10 @@ public class KeepScore : MonoBehaviour {
 			truth = "a";
 		}
 
-		playerA.text = " " + playerAscore;
-		playerB.text = " " + playerBscore;
-		playerC.text = " " + playerCscore;
-		playerD.text = " " + playerDscore;
+//		playerA.text = " " + playerAscore;
+//		playerB.text = " " + playerBscore;
+//		playerC.text = " " + playerCscore;
+//		playerD.text = " " + playerDscore;
 
 	}
 	
@@ -93,7 +109,7 @@ public class KeepScore : MonoBehaviour {
 
 	}
 	
-	public static int occurrences(string item, string[] ary)
+	 int occurrences(string item, string[] ary)
 	{
 		int count = 0;
 		for (int i=0;i<ary.Length;i++)
@@ -103,5 +119,55 @@ public class KeepScore : MonoBehaviour {
 		}
 		return count;
 	}
+
+
+
+	void BlameStickers (){
+		for (int i = 0; i < occurrences(phase1[0], phase2); i++) {
+			Instantiate (blameSticker, PositionsA[storageSpotA], Quaternion.identity);
+			storageSpotA++;
+		}
+		for (int i = 0; i < occurrences(phase1[1], phase2); i++) {
+			Instantiate (blameSticker, PositionsB[storageSpotB], Quaternion.identity);
+			storageSpotB++;
+		}
+		for (int i = 0; i < occurrences(phase1[2], phase2); i++) {
+			Instantiate (blameSticker, PositionsC [storageSpotC], Quaternion.identity);
+			storageSpotC++;
+		}
+			for (int i = 0; i < occurrences(phase1[3], phase2); i++) {
+			Instantiate (blameSticker, PositionsD[storageSpotD], Quaternion.identity);
+			storageSpotD++;
+		}
+	}
+
+	void VoteStickers (){
+		for (int i = 0; i < occurrences("a", phase2); i++) {
+			Instantiate (voteSticker, PositionsA[storageSpotA], Quaternion.identity);
+			storageSpotA++;
+		}
+		for (int i = 0; i < occurrences("b", phase2); i++) {
+			Instantiate (voteSticker, PositionsB[storageSpotB], Quaternion.identity);
+			storageSpotB++;
+		}
+		for (int i = 0; i < occurrences("c", phase2); i++) {
+			Instantiate (voteSticker, PositionsC [storageSpotC], Quaternion.identity);
+			storageSpotC++;
+		}
+		for (int i = 0; i < occurrences("d", phase2); i++) {
+			Instantiate (voteSticker, PositionsD[storageSpotD], Quaternion.identity);
+			storageSpotD++;
+		}
+	}
+
+	void TruthStickers () {
+		if (phase2[0] == truth) Instantiate (truthSticker, PositionsA[storageSpotA], Quaternion.identity);
+		if (phase2[1] == truth) Instantiate (truthSticker, PositionsB[storageSpotB], Quaternion.identity);
+		if (phase2[2] == truth) Instantiate (truthSticker, PositionsC[storageSpotC], Quaternion.identity);
+		if (phase2[3] == truth) Instantiate (truthSticker, PositionsD[storageSpotD], Quaternion.identity);
+	}
+
+
+
 	
 }

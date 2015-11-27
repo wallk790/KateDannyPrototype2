@@ -20,18 +20,12 @@ public class timeRemain : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		time.text = " " + timeRemaining;
-//		if(BlameCounter.blameTime == 0){
-//			timeRemaining = 60;
-//		}
 
 		if(timeRemaining == 0){
 			timeRemaining = 30;
 			Application.LoadLevel("Vote");
 		}
-//
-//		if(BlameCounter.blameTime == -70){
-//			timeRemaining = 30;
-//		}
+
 	}
 
 	void Minus (){

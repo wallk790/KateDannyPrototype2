@@ -4,11 +4,6 @@ using UnityEngine.UI;
 
 public class Strings : MonoBehaviour {
 
-		
-		
-
-
-
 		string[] textQuestion = {
 			"Zoe told the principle one of you started a rumour that she got a nose job.",
 			"Zoe told the principle she saw one of you at school early in the morning.",

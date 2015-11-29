@@ -38,7 +38,7 @@ public class Strings : MonoBehaviour {
 		};
 		
 		string[]  textBlack = {
-			"Rachel and Lauren used to call Zoe “Shrek”.",
+			"Rachel and Lauren used to call Zoe Shrek.",
 			"Lauren has a locker next to Zoe’s.",
 			"Lauren told Rachel that Zoe peed her pants.",
 			"Zoe used to hook up with Rachel’s ex-boyfriend. Rachel is best friends with the captain of the swim team.",

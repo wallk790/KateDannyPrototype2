@@ -42,12 +42,15 @@ public class KeepScore : MonoBehaviour {
 		Invoke ("BlameStickers", 1f);
 		Invoke ("VoteStickers", 3f);
 		Invoke ("TruthStickers", 5f);
+		Invoke ("Blamed", 1f);
+		Invoke ("Voted", 3f);
+		Invoke ("Truth", 5f);
 
 
-//		playerA = A.GetComponent<Text>();
-//		playerB = B.GetComponent<Text>();
-//		playerC = C.GetComponent<Text>();
-//		playerD = D.GetComponent<Text>();
+		playerA = A.GetComponent<Text>();
+		playerB = B.GetComponent<Text>();
+		playerC = C.GetComponent<Text>();
+		playerD = D.GetComponent<Text>();
 	}
 
 	void Update(){
@@ -77,10 +80,10 @@ public class KeepScore : MonoBehaviour {
 			truth = "a";
 		}
 
-//		playerA.text = " " + playerAscore;
-//		playerB.text = " " + playerBscore;
-//		playerC.text = " " + playerCscore;
-//		playerD.text = " " + playerDscore;
+		playerA.text = " " + playerAscore;
+		playerB.text = " " + playerBscore;
+		playerC.text = " " + playerCscore;
+		playerD.text = " " + playerDscore;
 
 	}
 	

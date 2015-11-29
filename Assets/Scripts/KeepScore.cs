@@ -180,6 +180,10 @@ public class KeepScore : MonoBehaviour {
 		phase2 [1] = "j";
 		phase2 [2] = "j";
 		phase2 [3] = "j";
+
+        BlameCounter.questionNumber++;
+        Application.LoadLevel ("BlueandRedRumour");
+
 	}
 
 	

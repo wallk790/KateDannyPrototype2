@@ -4,9 +4,9 @@ using UnityEngine.UI;
 
 public class KeepScore : MonoBehaviour {
 
-	public static string[] phase1 = {"c","a","b","c"};
-	public static string[] phase2 = {"c","b","a","b"};
-	public static string truth = "b";
+	public static string[] phase1 = {"l","l","l","l"};
+	public static string[] phase2 = {"j","j","j","j"};
+    public static string truth;
 
 	int playerAscore = 0;
 	int playerBscore = 0;

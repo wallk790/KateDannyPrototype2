@@ -4,8 +4,8 @@ using UnityEngine.UI;
 
 public class KeepScore : MonoBehaviour {
 
-	public static string[] phase1 = {"b","a","d","c"};
-	public static string[] phase2 = {"b","b","c","d"};
+	public static string[] phase1 = {"c","a","b","c"};
+	public static string[] phase2 = {"c","b","a","b"};
 	public static string truth = "b";
 
 	int playerAscore = 0;
@@ -45,7 +45,7 @@ public class KeepScore : MonoBehaviour {
 		Invoke ("Blamed", 1f);
 		Invoke ("Voted", 3f);
 		Invoke ("Truth", 5f);
-
+		Invoke ("setMatrix", 7f);
 
 		playerA = A.GetComponent<Text>();
 		playerB = B.GetComponent<Text>();
@@ -170,7 +170,17 @@ public class KeepScore : MonoBehaviour {
 		if (phase2[3] == truth) Instantiate (truthSticker, PositionsD[storageSpotD], Quaternion.identity);
 	}
 
+	void setMatrix() {
+		phase1 [0] = "l";
+		phase1 [1] = "l";
+		phase1 [2] = "l";
+		phase1 [3] = "l";
 
+		phase2 [0] = "j";
+		phase2 [1] = "j";
+		phase2 [2] = "j";
+		phase2 [3] = "j";
+	}
 
 	
 }

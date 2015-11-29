@@ -37,47 +37,33 @@ public class Strings : MonoBehaviour {
 			"Emily had a party and invited everyone in the whole grade except for Zoe.",
 		};
 		
-		string[]  textBlack = {
-			"Rachel and Lauren used to call Zoe Shrek.",
-			"Lauren has a locker next to Zoe’s.",
-			"Lauren told Rachel that Zoe peed her pants.",
-			"Zoe used to hook up with Rachel’s ex-boyfriend. Rachel is best friends with the captain of the swim team.",
-			"Barbara and Emily started a quiz on Facebook asking everyone to vote on who the ugliest girl in the school is.",
-			"Everyone but Emily signed the note.",
-			"Barbara and Rachel saw Zoe run her hand through Emily’s boyfriends hair.",
-			"Lauren was in charge of inviting people to Rachel’s pool parties.",
-		}; 
+		
 
-	//Text question;
-	//Text red;
-	//Text blue;
-	Text black;
+	Text question;
+	Text red;
+	Text blue;
+
 	
-	//public GameObject questiontext;
-	//public GameObject redtext;
-	//public GameObject bluetext;
-	public GameObject blacktext;
+	public GameObject questiontext;
+	public GameObject redtext;
+	public GameObject bluetext;
+
 
 
 	void Start() {
 
-		//question = questiontext.GetComponent<Text>();
-		//red = redtext.GetComponent<Text>();
-		//blue = bluetext.GetComponent<Text>();
-		black = blacktext.GetComponent<Text>();
+		question = questiontext.GetComponent<Text>();
+		red = redtext.GetComponent<Text>();
+		blue = bluetext.GetComponent<Text>();
+		
 
 	}
 
 	void Update () {
 
-		//question.text = textQuestion[BlameCounter.questionNumber];
-		//red.text = textRed[BlameCounter.questionNumber];
-		//blue.text = textBlue[BlameCounter.questionNumber];
-		black.text = textBlack[BlameCounter.questionNumber];
-
-
-		 
-
+		question.text = textQuestion[BlameCounter.questionNumber];
+		red.text = textRed[BlameCounter.questionNumber];
+		blue.text = textBlue[BlameCounter.questionNumber];
 	}
 
 

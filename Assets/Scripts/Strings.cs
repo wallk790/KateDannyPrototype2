@@ -48,31 +48,31 @@ public class Strings : MonoBehaviour {
 			"Lauren was in charge of inviting people to Rachel’s pool parties.",
 		}; 
 
-	Text question;
-	Text red;
-	Text blue;
+	//Text question;
+	//Text red;
+	//Text blue;
 	Text black;
 	
-	public GameObject questiontext;
-	public GameObject redtext;
-	public GameObject bluetext;
+	//public GameObject questiontext;
+	//public GameObject redtext;
+	//public GameObject bluetext;
 	public GameObject blacktext;
 
 
 	void Start() {
 
-		question = questiontext.GetComponent<Text>();
-		red = redtext.GetComponent<Text>();
-		blue = bluetext.GetComponent<Text>();
+		//question = questiontext.GetComponent<Text>();
+		//red = redtext.GetComponent<Text>();
+		//blue = bluetext.GetComponent<Text>();
 		black = blacktext.GetComponent<Text>();
 
 	}
 
 	void Update () {
 
-		question.text = textQuestion[BlameCounter.questionNumber];
-		red.text = textRed[BlameCounter.questionNumber];
-		blue.text = textBlue[BlameCounter.questionNumber];
+		//question.text = textQuestion[BlameCounter.questionNumber];
+		//red.text = textRed[BlameCounter.questionNumber];
+		//blue.text = textBlue[BlameCounter.questionNumber];
 		black.text = textBlack[BlameCounter.questionNumber];
 
 

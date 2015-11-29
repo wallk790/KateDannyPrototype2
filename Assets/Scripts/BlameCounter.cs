@@ -7,7 +7,7 @@ public class BlameCounter : MonoBehaviour {
 	static public int blameTime = 30;
 	public static int timerLength = -70;
 	public static int timerStart = 30;
-	public static int questionNumber = -1;
+	public static int questionNumber = 0;
 
 	void Update (){
 		//print (blameTime);

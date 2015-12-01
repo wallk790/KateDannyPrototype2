@@ -8,10 +8,10 @@ public class KeepScore : MonoBehaviour {
 	public static string[] phase2 = {"j","j","j","j"};
     public static string truth;
 
-	int playerAscore = 0;
-	int playerBscore = 0;
-	int playerCscore = 0;
-	int playerDscore = 0;
+	static int playerAscore = 0;
+	static int playerBscore = 0;
+	static int playerCscore = 0;
+	static int playerDscore = 0;
 
 	Text playerA;
 	Text playerB;

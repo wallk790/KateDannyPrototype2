@@ -6,7 +6,7 @@ public class VoteTime : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-        Invoke("Next", 5f);
+        Invoke("Next", 10f);
 	
 	}
 

@@ -68,7 +68,14 @@ public class MoveOn : MonoBehaviour {
     }
 
     void NextScene() {
-        Application.LoadLevel(Application.loadedLevel + 1);
+        if(Application.loadedLevelName == ("Period"))
+        {
+           Application.LoadLevel("BlueandRedRumour");
+        } else {
+           Application.LoadLevel(Application.loadedLevel + 1);
+        }
+        
+        
     }
 
 }

@@ -45,7 +45,7 @@ public class KeepScore : MonoBehaviour {
 		Invoke ("Blamed", 1f);
 		Invoke ("Voted", 3f);
 		Invoke ("Truth", 5f);
-		//Invoke ("setMatrix", 10f);
+		//Invoke ("setMatrix", 1f);
 
 		playerA = A.GetComponent<Text>();
 		playerB = B.GetComponent<Text>();
@@ -171,6 +171,7 @@ public class KeepScore : MonoBehaviour {
 	}
 
 	void setMatrix() {
+
 		phase1 [0] = "l";
 		phase1 [1] = "l";
 		phase1 [2] = "l";
@@ -182,7 +183,7 @@ public class KeepScore : MonoBehaviour {
 		phase2 [3] = "j";
 
         BlameCounter.questionNumber++;
-        Application.LoadLevel ("BlueandRedRumour");
+        Application.LoadLevel (Application.loadedLevel + 1);
 
 	}
 

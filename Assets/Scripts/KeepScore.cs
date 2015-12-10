@@ -255,6 +255,11 @@ public class KeepScore : MonoBehaviour {
         BlameCounter.questionNumber++;
         Application.LoadLevel (Application.loadedLevel + 1);
 
+        if(BlameCounter.questionNumber == 8)
+        {
+            Application.LoadLevel("End");
+        }
+
 
 
 

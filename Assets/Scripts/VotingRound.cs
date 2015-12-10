@@ -6,9 +6,13 @@ public class VotingRound : MonoBehaviour
 
     static int voteCounter = 0;
 
+    void Start() {
+        voteCounter = 0;
+    }
+
     void Update()
     {
-        print(voteCounter);
+        
 
         if (voteCounter == 4)
         {

@@ -1,14 +1,17 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class KeepScore : MonoBehaviour {
 
-	public static string[] phase1 = {"b","b","b","b"};
-	public static string[] phase2 = {"b","b","b","b"};
+	public static string[] phase1 = {"b","c","d","a"};
+	public static string[] phase2 = {"b","a","b","c"};
     public static string truth;
+    public static string maxKey = "";
+    public static string minKey = "";
 
-	public static int playerAscore = 0;
+    public static int playerAscore = 0;
 	public static int playerBscore = 0;
 	public static int playerCscore = 0;
 	public static int playerDscore = 0;
@@ -17,18 +20,26 @@ public class KeepScore : MonoBehaviour {
 	Text playerB;
 	Text playerC;
 	Text playerD;
+    Text LeaderGirl;
+    
 
-	public GameObject A;
+    public GameObject A;
 	public GameObject B;
 	public GameObject C;
 	public GameObject D;
+    public GameObject Popular;
+   
 
-	public GameObject blameSticker;
+    public GameObject blameSticker;
 	public GameObject voteSticker;
 	public GameObject truthSticker;
 
-	
-	public GameObject[] PositionsA;
+    public SpriteRenderer truthText;
+    public SpriteRenderer blameText;
+    public SpriteRenderer pinnedText;
+
+
+    public GameObject[] PositionsA;
 	public GameObject[] PositionsB;
 	public GameObject[] PositionsC;
 	public GameObject[] PositionsD;
@@ -45,13 +56,17 @@ public class KeepScore : MonoBehaviour {
 		Invoke ("Blamed", 1f);
 		Invoke ("Voted", 3f);
 		Invoke ("Truth", 5f);
+        Invoke("Leader", 7f);
 		Invoke ("setMatrix", 10f);
+
 
 		playerA = A.GetComponent<Text>();
 		playerB = B.GetComponent<Text>();
 		playerC = C.GetComponent<Text>();
 		playerD = D.GetComponent<Text>();
-	}
+        LeaderGirl = Popular.GetComponent<Text>();
+
+    }
 
 	void Update(){
 
@@ -86,15 +101,62 @@ public class KeepScore : MonoBehaviour {
 		playerD.text = " " + playerDscore;
 
 	}
-	
+
+    void Leader () {
+ 
+        List<KeyValuePair<string, int>> scoreList = new List<KeyValuePair<string, int>>();
+        scoreList.Add(new KeyValuePair<string, int>("Emily", playerAscore));
+        scoreList.Add(new KeyValuePair<string, int>("Barbara", playerBscore));
+        scoreList.Add(new KeyValuePair<string, int>("Rachel", playerCscore));
+        scoreList.Add(new KeyValuePair<string, int>("Lauren", playerDscore));
+
+
+        int maxVal = -8000; // max lowest score
+        int minVal = 6400;  // max highest score 
+        int maxTie = 0;
+        int minTie = 0;
+
+        foreach (KeyValuePair<string, int> item in scoreList)
+        {
+            if (item.Value > maxVal)
+            {
+                maxKey = item.Key;
+                maxVal = item.Value;
+            }
+
+            if (item.Value < minVal)
+            {
+                minKey = item.Key;
+                minVal = item.Value;
+            }
+        }
+
+        foreach (KeyValuePair<string, int> item in scoreList)
+        {
+            if (item.Value == maxVal) maxTie++;
+            if (item.Value == minVal) minTie++;
+        }
+
+        if (maxTie > 1) maxKey = "Tie";
+        if (minTie > 1) minKey = "Tie";
+
+        LeaderGirl.text = " " + maxKey;
+        //LoserGirl.text = " " + minKey;
+
+       // print("Winner " + maxKey + ":" + maxVal + " Loser " + minKey + ":" + minVal);
+    }
+
 
 	void Truth () {
 		if (phase2[0] == truth) playerAscore += 500;
 		if (phase2[1] == truth) playerBscore += 500;
 		if (phase2[2] == truth) playerCscore += 500;
 		if (phase2[3] == truth) playerDscore += 500;
+        truthText.enabled = true;
+        blameText.enabled = false;
+        pinnedText.enabled = false;
 
-	}
+}
 		
 	void Voted (){
 		playerAscore -= occurrences("a", phase2) * 250;
@@ -102,7 +164,11 @@ public class KeepScore : MonoBehaviour {
 		playerCscore -= occurrences("c", phase2) * 250;
 		playerDscore -= occurrences("d", phase2) * 250;
 
-	}
+        truthText.enabled = false;
+        blameText.enabled = true;
+        pinnedText.enabled = false;
+
+    }
 		
 	void Blamed () {
 		playerAscore += occurrences(phase1[0], phase2) * 100;
@@ -110,7 +176,11 @@ public class KeepScore : MonoBehaviour {
 		playerCscore += occurrences(phase1[2], phase2) * 100;
 		playerDscore += occurrences(phase1[3], phase2) * 100;
 
-	}
+        truthText.enabled = false;
+        blameText.enabled = false;
+        pinnedText.enabled = true;
+
+    }
 	
 	 int occurrences(string item, string[] ary)
 	{

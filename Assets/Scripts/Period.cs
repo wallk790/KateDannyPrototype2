@@ -5,14 +5,14 @@ using UnityEngine.UI;
 public class Period : MonoBehaviour {
 
     string[] RoundNumber = {
-            "Period 1",
-            "Period 2",
-            "Period 3",
-            "Period 4",
-            "Period 5",
-            "Period 6",
-            "Period 7",
-            "Last Period",
+            "PERIOD 1",
+            "PERIOD 2",
+            "PERIOD 3",
+            "PERIOD 4",
+            "PERIOD 5",
+            "PERIOD 6",
+            "PERIOD 7",
+            "LAST PERIOD",
         };
 
     Text round;

@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MoveOn : MonoBehaviour {
+public class MoveOn : MonoBehaviour
+{
 
     public SpriteRenderer zero;
     public SpriteRenderer one;
@@ -10,51 +11,71 @@ public class MoveOn : MonoBehaviour {
     public SpriteRenderer four;
 
     int tracker = 0;
-    
 
-	void Update () {
 
-        if (tracker == 0) {
+    void Update()
+    {
+
+        if (tracker == 0)
+        {
             zero.enabled = true;
-        } else {
+        }
+        else
+        {
             zero.enabled = false;
         }
 
         if (tracker == 1)
         {
             one.enabled = true;
-        } else {
+        }
+        else
+        {
             one.enabled = false;
         }
 
         if (tracker == 2)
         {
             two.enabled = true;
-        }else{
+        }
+        else
+        {
             two.enabled = false;
         }
 
         if (tracker == 3)
         {
             three.enabled = true;
-        }else{
+        }
+        else
+        {
             three.enabled = false;
         }
 
         if (tracker == 4)
         {
             four.enabled = true;
-            Invoke("NextScene", 1f);
+            if (this.tag == "Next")
+            {
+                Invoke("NextScene", 1f);
+            }
+
+            if (this.tag == "Reset")
+            {
+                Invoke("Reset", 1f);
+            }
         }
-        else{
+        else
+        {
             four.enabled = false;
-            
+
         }
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "A" || other.gameObject.tag == "B" || other.gameObject.tag == "C" || other.gameObject.tag == "D") {
+        if (other.gameObject.tag == "A" || other.gameObject.tag == "B" || other.gameObject.tag == "C" || other.gameObject.tag == "D")
+        {
             tracker++;
         }
     }
@@ -67,15 +88,29 @@ public class MoveOn : MonoBehaviour {
         }
     }
 
-    void NextScene() {
-        if(Application.loadedLevelName == ("Period"))
+    void NextScene()
+    {
+        if (BlameCounter.questionNumber == 8)
         {
-           Application.LoadLevel("BlueandRedRumour");
-        } else {
-           Application.LoadLevel(Application.loadedLevel + 1);
+            Application.LoadLevel("End");
         }
-        
-        
+
+        if (BlameCounter.questionNumber != 8)
+        {
+            if (Application.loadedLevelName == ("Period"))
+            {
+                Application.LoadLevel("BlueandRedRumour");
+            }
+            else
+            {
+                Application.LoadLevel(Application.loadedLevel + 1);
+            }
+        }
+
     }
 
+    void Reset()
+    {
+        Application.LoadLevel("Title");
+    }
 }

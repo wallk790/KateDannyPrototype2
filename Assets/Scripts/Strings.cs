@@ -5,14 +5,14 @@ using UnityEngine.UI;
 public class Strings : MonoBehaviour {
 
 		string[] textQuestion = {
-			"Zoe told the principle one of you started a rumour that she got a nose job.",
-			"Zoe told the principle she saw one of you at school early in the morning.",
-			"Zoe told the principle one of you told everyone that she pooped her pants in 2nd grade.",
-			"Zoe told the principle one of you wouldn’t let her joint the swim team.",
-			"Zoe told the principle that one of you told everyone she is “fugly.”",
-			"Zoe told the principle one of you asked everyone in the grade to sign the note.",
-			"Zoe told the principle one of you started a rumour that Emily’s boyfriend was cheating on her with Zoe.",
-			"Zoe told the principle one of you excluded her from a party she thought she should be invited to.",
+			"Zoe told the principal one of you started a rumour that she got a nose job.",
+			"Zoe told the principal she saw one of you at school by the lockers in the morning.",
+			"Zoe told the principal one of you told everyone that she pooped her pants in 2nd grade.",
+			"Zoe told the principal one of you wouldn’t let her join the swim team.",
+			"Zoe told the principal that one of you told everyone she is “fugly.”",
+			"Zoe told the principal one of you asked everyone in the grade to sign the note.",
+			"Zoe told the principal one of you started a rumour that Emily’s boyfriend was cheating on her with Zoe.",
+			"Zoe told the principal one of you excluded her from a party she thought she should be invited to.",
 		};
 		
 		string[] textRed = {

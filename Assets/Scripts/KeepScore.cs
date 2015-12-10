@@ -5,8 +5,8 @@ using System.Collections.Generic;
 
 public class KeepScore : MonoBehaviour {
 
-	public static string[] phase1 = {"b","c","d","a"};
-	public static string[] phase2 = {"b","a","b","c"};
+	public static string[] phase1 = {"l","l","l","l"};
+	public static string[] phase2 = {"j","j","j","j"};
     public static string truth;
     public static string maxKey = "";
     public static string minKey = "";

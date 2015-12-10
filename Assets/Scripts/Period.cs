@@ -12,8 +12,7 @@ public class Period : MonoBehaviour {
             "Period 5",
             "Period 6",
             "Period 7",
-            "Period 8",
-            "End",
+            "Last Period",
         };
 
     Text round;

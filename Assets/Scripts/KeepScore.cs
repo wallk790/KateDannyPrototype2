@@ -45,7 +45,7 @@ public class KeepScore : MonoBehaviour {
 		Invoke ("Blamed", 1f);
 		Invoke ("Voted", 3f);
 		Invoke ("Truth", 5f);
-		Invoke ("setMatrix", 1f);
+		Invoke ("setMatrix", 10f);
 
 		playerA = A.GetComponent<Text>();
 		playerB = B.GetComponent<Text>();

@@ -51,13 +51,13 @@ public class KeepScore : MonoBehaviour {
 	
 	void Start (){
 		Invoke ("BlameStickers", 1f);
-		Invoke ("VoteStickers", 3f);
-		Invoke ("TruthStickers", 5f);
+		Invoke ("VoteStickers", 8f);
+		Invoke ("TruthStickers", 15f);
 		Invoke ("Blamed", 1f);
-		Invoke ("Voted", 3f);
-		Invoke ("Truth", 5f);
-        Invoke("Leader", 7f);
-		Invoke ("setMatrix", 10f);
+		Invoke ("Voted", 8f);
+		Invoke ("Truth", 15f);
+        Invoke("Leader", 18f);
+		Invoke ("setMatrix", 22f);
 
 
 		playerA = A.GetComponent<Text>();
